@@ -33,13 +33,7 @@ class FilePreview {
           height: height,
         );
       default:
-        if (Platform.isIOS) {
-          final Uint8List byteList =
-              await _channel.invokeMethod('getThumbnail', filePath);
-          return Image.memory(byteList);
-        } else {
-          return _defaultImage(filePath);
-        }
+        return _defaultImage(filePath);
     }
   }
 
